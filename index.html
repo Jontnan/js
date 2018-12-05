@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    
+</head>
+  
+
+  <!-- Demo styles -->
+  <style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      margin-top: 20px;
+
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .mui-content{
+    	position: relative;
+    }
+    #button{
+    	display:inline-block;
+    	width:50px;
+    	height:60px;
+    	border-radius:50%;
+        padding:5px;
+        position: absolute;
+        z-index: 100;
+        right: 0;
+        top:80px;
+        opacity: 0.5;
+        border: 1px solid #AAAAAA;
+        background: #000000;
+    }
+    #btn{
+    	display:inline-block;
+    	width:50px;
+    	height:60px;
+    	border-radius:50%;
+        padding:5px;
+        position: absolute;
+        z-index: 100;
+        right: 0;
+        top:80px;
+        opacity: 0.5;
+        border: 1px solid #AAAAAA;
+        background:#f60;
+    }
+    .container{
+    	width:100px;
+    	height:50px;
+    	background:#23B7E5;
+    	margin:0 auto;
+    }
+  </style>
+<body>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">标题</h1>
+</header>
+
+<div class="mui-content">
+  <button type="button" class="mui-btn mui-btn-blue" id="button">按钮</button>
+   <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="img/0.jpg"/></div>
+      <div class="swiper-slide"><img src="img/1.jpg"/></div>
+      <div class="swiper-slide"><img src="img/2.jpg"/></div>
+      <div class="swiper-slide"><img src="img/3.jpg"/></div>
+      <div class="swiper-slide"><img src="img/4.jpg"/></div>
+      <div class="swiper-slide"><img src="img/5.jpg"/></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  
+</div>
+<nav class="mui-bar mui-bar-tab">
+    <a class="mui-tab-item mui-active">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item">
+        <span class="mui-icon mui-icon-phone"></span>
+        <span class="mui-tab-label">电话</span>
+    </a>
+    <a class="mui-tab-item">
+        <span class="mui-icon mui-icon-email"></span>
+        <span class="mui-tab-label">邮件</span>
+    </a>
+    <a class="mui-tab-item">
+        <span class="mui-icon mui-icon-gear"></span>
+        <span class="mui-tab-label">设置</span>
+    </a>
+</nav>
+<h1></h1>
+<div class="container">
+	<span class="mui-icon-closeempty" ></span>
+</div>
+ <!-- Swiper  JS-->
+ <script src="js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    var a=document.getElementById("button")
+     a.onclick=function(){
+     	console.log(this.id)
+     	  if(this.id.indexOf('button') >= 0){
+            this.id='btn';
+        }else{
+            this.id='button';
+        }
+     }
+//   function ajax(){
+//   	var xhr=new XMLHttpRequest()
+//   	xhr.onreadystatechange=function(){
+//   		if(xhr.readyState!==4){
+//   			return
+//   		}
+//   		if(xhr.status>=200&xhr.status<=300){
+//   			document.querySelector('h1').innerHTML=xhr.responseText
+//   		}else{
+//   			console.erro("请求失败")
+//   		}
+//   	}
+//   xhr.open('get','./city.json',true)
+//   xhr.send()
+//   }
+//   ajax()
+//   
+  </script>
+</body>
+</html>

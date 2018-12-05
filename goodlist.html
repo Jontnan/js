@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<title>商品列表页</title>
+		<link rel="stylesheet" type="text/css" href="css/style1.css"/>
+	</head>
+	
+	<body>
+		<div id="app">
+			<div class="container">
+				<header class="header">
+					<div class="header_inner">
+						<div class="header_cont">主页</div>
+					</div>
+				</header>
+				<div class="content">
+					<!--<ul class="cont_ul">
+						<li class="sec_li">
+							<a  href="goodsDetail.html" class="lp_li_a">
+								<div  class="lp_li_imgWrap"><img  src="img/ly.jpg" alt=""></div>
+								<p  class="lp_li_name">论语</p>
+								<p  class="lp_li_price">￥45.00元</p>
+							</a>
+						</li>
+					</ul>-->
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//请求json数据拼接字符串，并在URL传参跳
+	     $(function(){
+		$.ajax({
+			type:"get",
+			url:"item.json",
+			dataType:"json",
+			success:function(res){
+			var str = "<ul class='con_ul'>";
+			$.each(res.data, function(index,val) {
+				console.log(index,val)
+			str +="<li class=\"sec_li\"><a href='gooddetails.html?parentProductId="+val.parentProductId+"' class='lp_li_a'><div class='lp_li_imgWrap'><img src='"+val.productImg+"'/></div><p class='lp_li_name'>"
+			+val.productTitle+"</p><p class='lp_li_price'>"
+			+'￥'+val.sellPrice+"</p></a><li>";
+			});
+			str += "</ul>";
+			$('.content').append(str);
+			},error:function(){
+			alert(error)
+			}
+		})
+	});
+
+		</script>
+	</body>
+</html>
